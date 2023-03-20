@@ -11,14 +11,12 @@ const transporter = nodemailer.createTransport({
 	},
 });
 
-export const POST = async (req: NextRequest) => {
-	const body = await req.json();
-
-	const emailHtml = render(<Email teamName={body.name} />);
+export const GET = async () => {
+	const emailHtml = render(<Email teamName="KIDIBRA" />);
 
 	const mailOptions = {
 		from: process.env.MAIL_USERNAME,
-		to: body.email as string,
+		to: "johnibrahimfrank@gmail.com",
 		subject: "Message from contact form",
 		html: emailHtml,
 	};
